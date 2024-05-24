@@ -27,10 +27,6 @@ RUN apt-get update -qq && apt-get upgrade -y && apt-get install -y \
 RUN python3 -m venv /usr/src/app/venv
 ENV PATH="/usr/src/app/venv/bin:$PATH"
 
-RUN wget -q -O /tmp/libtinyxml2-6a.deb http://kr.archive.ubuntu.com/ubuntu/pool/universe/t/tinyxml2/libtinyxml2-6a_7.0.0+dfsg-1build1_amd64.deb \
-  && dpkg -i /tmp/libtinyxml2-6a.deb \
-  && rm /tmp/libtinyxml2-6a.deb
-
 RUN locale-gen en_US.UTF-8 && update-locale LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
 
 COPY requirements.txt .
